@@ -8,8 +8,13 @@ with open ("woorden/wordlist.txt","r") as bestand :
     while woord :
         
         woord= bestand.readline()
-      
-        #if ("0" or "1" or "2" or "3" or "4"or "5" or "6" or "7" or "8" or "9" or "'" or "." or "-" or "/" or "+"or "&" or "@" or "€" ) not in woord:
+        woord=woord[0:len(woord)-1]
+        
+        #if ("0" or "1" or "2" or "3" or "4"or "5" or "6" or "7" or "8" or "9" or "'" or "." or "-" or "/" or "+"or "&" or "@" or "€" or " " or "²" or "³" or"₂" or"…" or " " or "¤")  in woord:
+         #   continue
+        
+        if len(woord)<4 or len(woord) >8 :
+            continue          
         if "0" in woord :
             continue
         if "1" in woord :
@@ -54,8 +59,7 @@ with open ("woorden/wordlist.txt","r") as bestand :
             continue 
         if " " in woord :
             continue
-        if len(woord)<5 or len(woord) >9 :
-            continue  
+
         toevoegsel=woord[0].upper()
         if toevoegsel in "Å Ä Â Ã" :
             toevoegsel= "A"
@@ -65,7 +69,7 @@ with open ("woorden/wordlist.txt","r") as bestand :
             toevoegsel= "N" 
         if toevoegsel in "Ë Ê " :
             toevoegsel= "E" 
-        if woord[0].upper() in "Ï Î" :
+        if toevoegsel in "Ï Î" :
             toevoegsel= "I"    
         if toevoegsel in "Ö Ô" :
             toevoegsel= "O"                    
@@ -73,7 +77,7 @@ with open ("woorden/wordlist.txt","r") as bestand :
             toevoegsel= "U"  
         dm.woord_toevoegen(woord, toevoegsel)
         i=i+1
-        if i == 100:
+        if i == 200:
             print (woord)
             i=0
 

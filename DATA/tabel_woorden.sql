@@ -1,0 +1,12 @@
+-- SQLite
+DROP TABLE IF EXISTS woorden_met_id;
+DROP TABLE IF EXISTS woorden;
+
+CREATE TABLE IF NOT EXISTS woorden_met_id(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    woord TEXT NOT NULL
+    );
+
+CREATE TABLE IF NOT EXISTS woorden(
+    woord TEXT NOT NULL
+    );
